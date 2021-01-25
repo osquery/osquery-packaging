@@ -1,0 +1,9 @@
+# Osquery Codeowners
+# Documented at https://help.github.com/en/articles/about-code-owners
+#
+# Order is important; the last matching pattern takes the most
+# precedence.
+
+# This code is run inside the codesigning context; make sure that
+# changes are double checked
+* @alessandrogario @theopolis @muffins @smjert @directionless @zwass
