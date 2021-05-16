@@ -26,7 +26,7 @@ set(file_name_list
 
 foreach(directory_name ${directory_name_list})
   install(
-    DIRECTORY "${OSQUERY_DATA_PATH}/Program Files (x86)/osquery/${directory_name}"
+    DIRECTORY "${OSQUERY_DATA_PATH}/Program Files/osquery/${directory_name}"
     DESTINATION "."
     COMPONENT osquery
   )
@@ -34,14 +34,14 @@ endforeach()
 
 foreach(file_name ${file_name_list})
   install(
-    FILES "${OSQUERY_DATA_PATH}/Program Files (x86)/osquery/${file_name}"
+    FILES "${OSQUERY_DATA_PATH}/Program Files/osquery/${file_name}"
     DESTINATION "."
     COMPONENT osquery
   )
 endforeach()
 
 install(
-  FILES "${OSQUERY_DATA_PATH}/Program Files (x86)/osquery/osqueryd/osqueryd.exe"
+  FILES "${OSQUERY_DATA_PATH}/Program Files/osquery/osqueryd/osqueryd.exe"
   DESTINATION "osqueryd"
   COMPONENT osquery
 )
