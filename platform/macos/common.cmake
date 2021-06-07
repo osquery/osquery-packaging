@@ -45,6 +45,20 @@ install(
 
 install(
   FILES
+    "${OSQUERY_DATA_PATH}/scripts/preinstall.sh"
+    # todo: postinstall necessary? need to test
+
+  DESTINATION
+    "/opt/osquery.app/Contents/Resources"
+
+  COMPONENT
+    osquery
+
+  #todo: check and apply correct permissions
+)
+
+install(
+  FILES
     "${OSQUERY_DATA_PATH}/opt/bin/osqueryi"
     "${OSQUERY_DATA_PATH}/opt/bin/osqueryctl"
 
