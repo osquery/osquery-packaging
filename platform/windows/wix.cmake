@@ -17,7 +17,7 @@ else()
   message(FATAL_ERROR "The OSQUERY_BITNESS variable must be set to either 32 or 64 according to the build type")
 endif()
 
-set(CPACK_WIX_PRODUCT_ICON "${OSQUERY_DATA_PATH}/control/msi/osquery.ico")
+set(CPACK_WIX_PRODUCT_ICON "${OSQUERY_DATA_PATH}/control/osquery.ico")
 set(CPACK_WIX_UPGRADE_GUID "ea6c7327-461e-4033-847c-acdf2b85dede")
 set(CPACK_WIX_PATCH_FILE "${OSQUERY_DATA_PATH}/control/msi/osquery_wix_patch.xml")
 set(CPACK_PACKAGE_INSTALL_DIRECTORY "osquery")
