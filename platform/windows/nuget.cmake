@@ -14,7 +14,7 @@ install(
 )
 
 install(
-  FILES "${OSQUERY_DATA_PATH}/control/osquery.ico"
+  FILES "${OSQUERY_DATA_PATH}/control/osquery.png"
   DESTINATION "."
   COMPONENT osquery
 )
@@ -45,7 +45,7 @@ set(CPACK_NUGET_PACKAGE_TITLE "${CPACK_PACKAGE_NAME}")
 set(CPACK_NUGET_PACKAGE_OWNERS "${CPACK_PACKAGE_NAME}")
 set(CPACK_NUGET_PACKAGE_COPYRIGHT "Copyright (c) 2014-present, The osquery authors. See LICENSE.")
 set(CPACK_NUGET_PACKAGE_LICENSE_FILE_NAME "LICENSE.txt")
-set(CPACK_NUGET_PACKAGE_ICON "osquery.ico")
+set(CPACK_NUGET_PACKAGE_ICON "osquery.png")
 set(CPACK_NUGET_PACKAGE_DESCRIPTION_SUMMARY "
   osquery gives you the ability to query and log things like running 
   processes, logged in users, password changes, usb devices, firewall 
