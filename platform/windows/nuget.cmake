@@ -19,6 +19,12 @@ install(
   COMPONENT osquery
 )
 
+install(
+  FILES "${OSQUERY_DATA_PATH}/control/LICENSE.txt"
+  DESTINATION "."
+  COMPONENT osquery
+)
+
 set(CPACK_NUGET_PACKAGE_DESCRIPTION "
   osquery allows you to easily ask questions about your Linux, macOS, and
   Windows infrastructure. Whether your goal is intrusion detection, 
