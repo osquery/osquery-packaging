@@ -13,8 +13,8 @@ set(CPACK_COMMAND_PKGBUILD "${CPACK_COMMAND_PRODUCTBUILD}")
 
 install(
   FILES
-    "${OSQUERY_DATA_PATH}/control/pkg/com.osquery.osqueryd.conf"
-    "${OSQUERY_DATA_PATH}/control/pkg/com.osquery.osqueryd.plist"
+    "${OSQUERY_DATA_PATH}/control/pkg/io.osquery.osqueryd.conf"
+    "${OSQUERY_DATA_PATH}/control/pkg/io.osquery.osqueryd.plist"
 
   DESTINATION
     "/private/var/osquery"
