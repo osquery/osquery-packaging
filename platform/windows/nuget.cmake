@@ -44,7 +44,7 @@ set(CPACK_NUGET_PACKAGE_AUTHORS "${CPACK_PACKAGE_NAME}")
 set(CPACK_NUGET_PACKAGE_TITLE "${CPACK_PACKAGE_NAME}")
 set(CPACK_NUGET_PACKAGE_OWNERS "${CPACK_PACKAGE_NAME}")
 set(CPACK_NUGET_PACKAGE_COPYRIGHT "Copyright (c) 2014-present, The osquery authors. See LICENSE.")
-set(CPACK_NUGET_PACKAGE_LICENSE_FILE_NAME "LICENSE.txt")
+set(CPACK_NUGET_PACKAGE_LICENSEURL "https://raw.githubusercontent.com/osquery/osquery/master/LICENSE")
 set(CPACK_NUGET_PACKAGE_ICON "osquery.png")
 set(CPACK_NUGET_PACKAGE_DESCRIPTION_SUMMARY "
   osquery gives you the ability to query and log things like running 
