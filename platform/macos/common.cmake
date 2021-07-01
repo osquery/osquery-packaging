@@ -45,26 +45,10 @@ install(
 
 install(
   FILES
-    "${OSQUERY_DATA_PATH}/scripts/preinstall.sh"
-    # todo: postinstall necessary? need to test
+    "${OSQUERY_DATA_PATH}/opt/bin/osqueryctl"
 
   DESTINATION
     "/opt/osquery.app/Contents/Resources"
-
-  COMPONENT
-    osquery
-
-  #todo: check and apply correct permissions
-)
-
-install(
-  FILES
-    "${OSQUERY_DATA_PATH}/opt/bin/osqueryi"
-    "${OSQUERY_DATA_PATH}/opt/bin/osqueryctl"
-
-  # /usr/local is the default packaging prefix
-  DESTINATION
-    "bin"
 
   COMPONENT
     osquery
@@ -73,6 +57,28 @@ install(
     OWNER_READ OWNER_WRITE OWNER_EXECUTE
     GROUP_READ             GROUP_EXECUTE
     WORLD_READ             WORLD_EXECUTE 
+)
+
+execute_process(
+  COMMAND "${CMAKE_COMMAND}" -E create_symlink "/opt/osquery.app/Contents/MacOS/osqueryd" osqueryi
+  WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}"
+)
+
+execute_process(
+  COMMAND "${CMAKE_COMMAND}" -E create_symlink "/opt/osquery.app/Contents/Resources/osqueryctl" osqueryctl
+  WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}"
+)
+
+install(
+  FILES
+    "${CMAKE_CURRENT_BINARY_DIR}/osqueryi"
+    "${CMAKE_CURRENT_BINARY_DIR}/osqueryctl"
+  
+  DESTINATION
+    "/usr/local/bin/"
+  
+  COMPONENT
+    osquery
 )
 
 install(
