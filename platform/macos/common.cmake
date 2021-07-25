@@ -13,10 +13,10 @@ set(CPACK_SET_DESTDIR ON)
 
 install(
   FILES
-    "${OSQUERY_DATA_PATH}/opt/bin/osqueryd"
+    "${OSQUERY_DATA_PATH}/opt/osquery/bin/osqueryd"
 
   DESTINATION
-    "/opt/osquery.app/Contents/MacOS"
+    "/opt/osquery/lib/osquery.app/Contents/MacOS"
 
   COMPONENT
     osquery
@@ -34,7 +34,7 @@ install(
     "${OSQUERY_DATA_PATH}/control/embedded.provisionprofile"
 
   DESTINATION
-    "/opt/osquery.app/Contents"
+    "/opt/osquery/lib/osquery.app/Contents"
 
   COMPONENT
     osquery
@@ -42,10 +42,10 @@ install(
 
 install(
   FILES
-    "${OSQUERY_DATA_PATH}/opt/bin/osqueryctl"
+    "${OSQUERY_DATA_PATH}/opt/osquery/bin/osqueryctl"
 
   DESTINATION
-    "/opt/osquery.app/Contents/Resources"
+    "/opt/osquery/lib/osquery.app/Contents/Resources"
 
   COMPONENT
     osquery
@@ -57,12 +57,12 @@ install(
 )
 
 execute_process(
-  COMMAND "${CMAKE_COMMAND}" -E create_symlink "/opt/osquery.app/Contents/MacOS/osqueryd" osqueryi
+  COMMAND "${CMAKE_COMMAND}" -E create_symlink "/opt/osquery/lib/osquery.app/Contents/MacOS/osqueryd" osqueryi
   WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}"
 )
 
 execute_process(
-  COMMAND "${CMAKE_COMMAND}" -E create_symlink "/opt/osquery.app/Contents/Resources/osqueryctl" osqueryctl
+  COMMAND "${CMAKE_COMMAND}" -E create_symlink "/opt/osquery/lib/osquery.app/Contents/Resources/osqueryctl" osqueryctl
   WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}"
 )
 
@@ -72,7 +72,7 @@ install(
     "${CMAKE_CURRENT_BINARY_DIR}/osqueryctl"
   
   DESTINATION
-    "/usr/local/bin/"
+    "/opt/local/bin/"
   
   COMPONENT
     osquery
