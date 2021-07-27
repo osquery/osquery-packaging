@@ -13,8 +13,8 @@ set(CPACK_COMMAND_PKGBUILD "${CPACK_COMMAND_PRODUCTBUILD}")
 
 install(
   FILES
-    "${OSQUERY_DATA_PATH}/control/pkg/com.facebook.osqueryd.conf"
-    "${OSQUERY_DATA_PATH}/control/pkg/com.facebook.osqueryd.plist"
+    "${OSQUERY_DATA_PATH}/control/pkg/io.osquery.agent.conf"
+    "${OSQUERY_DATA_PATH}/control/pkg/io.osquery.agent.plist"
 
   DESTINATION
     "/private/var/osquery"
