@@ -72,7 +72,7 @@ install(
     "${CMAKE_CURRENT_BINARY_DIR}/osqueryctl"
   
   DESTINATION
-    "/opt/local/bin/"
+    "/usr/local/bin/"
   
   COMPONENT
     osquery
