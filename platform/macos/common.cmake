@@ -12,48 +12,16 @@ set(CPACK_PACKAGE_FILE_NAME "${CPACK_PACKAGE_NAME}-${CPACK_PACKAGE_VERSION}_${OS
 set(CPACK_SET_DESTDIR ON)
 
 install(
-  FILES
-    "${OSQUERY_DATA_PATH}/opt/osquery/bin/osqueryd"
+  DIRECTORY
+    "${OSQUERY_DATA_PATH}/opt/osquery/osquery.app"
 
   DESTINATION
-    "/opt/osquery/lib/osquery.app/Contents/MacOS"
+    "/opt/osquery/lib"
+
+  USE_SOURCE_PERMISSIONS
 
   COMPONENT
     osquery
-
-  PERMISSIONS
-    OWNER_READ OWNER_WRITE OWNER_EXECUTE
-    GROUP_READ             GROUP_EXECUTE
-    WORLD_READ             WORLD_EXECUTE 
-)
-
-install(
-  FILES
-    "${OSQUERY_DATA_PATH}/control/Info.plist"
-    "${OSQUERY_DATA_PATH}/control/PkgInfo"
-    "${OSQUERY_DATA_PATH}/control/embedded.provisionprofile"
-
-  DESTINATION
-    "/opt/osquery/lib/osquery.app/Contents"
-
-  COMPONENT
-    osquery
-)
-
-install(
-  FILES
-    "${OSQUERY_DATA_PATH}/opt/osquery/bin/osqueryctl"
-
-  DESTINATION
-    "/opt/osquery/lib/osquery.app/Contents/Resources"
-
-  COMPONENT
-    osquery
-
-  PERMISSIONS
-    OWNER_READ OWNER_WRITE OWNER_EXECUTE
-    GROUP_READ             GROUP_EXECUTE
-    WORLD_READ             WORLD_EXECUTE 
 )
 
 execute_process(
