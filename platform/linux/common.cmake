@@ -20,11 +20,18 @@ else()
   message(STATUS "OSQUERY_SOURCE_DIRECTORY_LIST was not set, disabling debug packages")
 endif()
 
+if(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
+  set(CMAKE_INSTALL_PREFIX "/opt/osquery" CACHE PATH "" FORCE)
+endif()
+
+if(NOT CPACK_PACKAGING_INSTALL_PREFIX)
+  set(CPACK_PACKAGING_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
+endif()
+
+
 install(
   FILES
-    "${OSQUERY_DATA_PATH}/usr/local/bin/osqueryd"
-    "${OSQUERY_DATA_PATH}/usr/local/bin/osqueryi"
-    "${OSQUERY_DATA_PATH}/usr/local/bin/osqueryctl"
+    "${OSQUERY_DATA_PATH}/opt/osquery/bin/osqueryd"
 
   DESTINATION
     "bin"
@@ -38,8 +45,30 @@ install(
     WORLD_READ             WORLD_EXECUTE 
 )
 
+execute_process(
+  COMMAND "${CMAKE_COMMAND}" -E create_symlink "${OSQUERY_DATA_PATH}/opt/osquery/bin/osqueryd" osqueryi
+  WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}"
+)
+
+execute_process(
+  COMMAND "${CMAKE_COMMAND}" -E create_symlink "${OSQUERY_DATA_PATH}/opt/osquery/bin/osqueryctl" osqueryctl
+  WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}"
+)
+
 install(
-  DIRECTORY "${OSQUERY_DATA_PATH}/usr/local/share/osquery"
+  FILES
+    "${CMAKE_CURRENT_BINARY_DIR}/osqueryi"
+    "${CMAKE_CURRENT_BINARY_DIR}/osqueryctl"
+  
+  DESTINATION
+    "/usr/local/bin/"
+  
+  COMPONENT
+    osquery
+)
+
+install(
+  DIRECTORY "${OSQUERY_DATA_PATH}/opt/osquery/share/osquery"
   DESTINATION "share"
   COMPONENT osquery
 )
