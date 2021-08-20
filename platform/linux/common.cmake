@@ -22,9 +22,9 @@ endif()
 
 install(
   FILES
-    "${OSQUERY_DATA_PATH}/usr/local/bin/osqueryd"
-    "${OSQUERY_DATA_PATH}/usr/local/bin/osqueryi"
-    "${OSQUERY_DATA_PATH}/usr/local/bin/osqueryctl"
+    "${OSQUERY_DATA_PATH}/opt/osquery/bin/osqueryd"
+    "${OSQUERY_DATA_PATH}/opt/osquery/bin/osqueryi"
+    "${OSQUERY_DATA_PATH}/opt/osquery/bin/osqueryctl"
 
   DESTINATION
     "bin"
@@ -39,7 +39,7 @@ install(
 )
 
 install(
-  DIRECTORY "${OSQUERY_DATA_PATH}/usr/local/share/osquery"
+  DIRECTORY "${OSQUERY_DATA_PATH}/opt/osquery/share/osquery"
   DESTINATION "share"
   COMPONENT osquery
 )
