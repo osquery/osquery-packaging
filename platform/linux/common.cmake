@@ -32,8 +32,6 @@ endif()
 install(
   FILES
     "${OSQUERY_DATA_PATH}/opt/osquery/bin/osqueryd"
-    "${OSQUERY_DATA_PATH}/opt/osquery/bin/osqueryi"
-    "${OSQUERY_DATA_PATH}/opt/osquery/bin/osqueryctl"
 
   DESTINATION
     "bin"
@@ -45,6 +43,28 @@ install(
     OWNER_READ OWNER_WRITE OWNER_EXECUTE
     GROUP_READ             GROUP_EXECUTE
     WORLD_READ             WORLD_EXECUTE 
+)
+
+execute_process(
+  COMMAND "${CMAKE_COMMAND}" -E create_symlink "${OSQUERY_DATA_PATH}/opt/osquery/bin/osqueryd" osqueryi
+  WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}"
+)
+
+execute_process(
+  COMMAND "${CMAKE_COMMAND}" -E create_symlink "${OSQUERY_DATA_PATH}/opt/osquery/bin/osqueryctl" osqueryctl
+  WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}"
+)
+
+install(
+  FILES
+    "${CMAKE_CURRENT_BINARY_DIR}/osqueryi"
+    "${CMAKE_CURRENT_BINARY_DIR}/osqueryctl"
+  
+  DESTINATION
+    "/usr/local/bin/"
+  
+  COMPONENT
+    osquery
 )
 
 install(
