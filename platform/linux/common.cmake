@@ -20,6 +20,15 @@ else()
   message(STATUS "OSQUERY_SOURCE_DIRECTORY_LIST was not set, disabling debug packages")
 endif()
 
+if(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
+      set(CMAKE_INSTALL_PREFIX "/opt/osquery" CACHE PATH "" FORCE)
+endif()
+
+if(NOT CPACK_PACKAGING_INSTALL_PREFIX)
+  set(CPACK_PACKAGING_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
+endif()
+
+
 install(
   FILES
     "${OSQUERY_DATA_PATH}/opt/osquery/bin/osqueryd"
