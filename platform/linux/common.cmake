@@ -32,7 +32,8 @@ endif()
 install(
   FILES
     "${OSQUERY_DATA_PATH}/opt/osquery/bin/osqueryd"
-
+    "${OSQUERY_DATA_PATH}/opt/osquery/bin/osqueryctl"
+  
   DESTINATION
     "bin"
 
