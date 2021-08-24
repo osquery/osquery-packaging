@@ -24,7 +24,7 @@ endif()
 
 install(
   FILES "${OSQUERY_DATA_PATH}/control/deb/lib/systemd/system/osqueryd.service"
-  DESTINATION "lib/systemd/system"
+  DESTINATION "/usr/lib/systemd/system"
   COMPONENT osquery
 )
 
