@@ -18,6 +18,7 @@ endif()
 
 set(directory_name_list
   "certs"
+  "packs"
   "log"
 )
 
