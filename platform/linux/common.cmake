@@ -56,17 +56,8 @@ execute_process(
   WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}"
 )
 
-# Fix 🐛 add symlinks in /usr for compatibility again (#17)
 execute_process(
-  COMMAND "${CMAKE_COMMAND}" -E create_symlink "/usr/local/bin/osqueryctl" osqueryctl
-  WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}"
-)
-execute_process(
-  COMMAND "${CMAKE_COMMAND}" -E create_symlink "/usr/local/bin/osqueryd" osqueryd
-  WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}"
-)
-execute_process(
-  COMMAND "${CMAKE_COMMAND}" -E create_symlink "/usr/local/bin/osqueryi" osqueryi
+  COMMAND "${CMAKE_COMMAND}" -E create_symlink "/opt/osquery/bin/osqueryd" osqueryd
   WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}"
 )
 
@@ -74,12 +65,10 @@ install(
   FILES
     "${CMAKE_CURRENT_BINARY_DIR}/osqueryi"
     "${CMAKE_CURRENT_BINARY_DIR}/osqueryctl"
-    "/usr/local/bin/osqueryctl"
-    "/usr/local/bin/osqueryd"
-    "/usr/local/bin/osqueryi"
+    "${CMAKE_CURRENT_BINARY_DIR}/osqueryd"
   
   DESTINATION
-    "/usr/local/bin/"
+    "/usr/bin/"
   
   COMPONENT
     osquery
