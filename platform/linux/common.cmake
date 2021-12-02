@@ -56,13 +56,19 @@ execute_process(
   WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}"
 )
 
+execute_process(
+  COMMAND "${CMAKE_COMMAND}" -E create_symlink "/opt/osquery/bin/osqueryd" osqueryd
+  WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}"
+)
+
 install(
   FILES
     "${CMAKE_CURRENT_BINARY_DIR}/osqueryi"
     "${CMAKE_CURRENT_BINARY_DIR}/osqueryctl"
+    "${CMAKE_CURRENT_BINARY_DIR}/osqueryd"
   
   DESTINATION
-    "/usr/local/bin/"
+    "/usr/bin/"
   
   COMPONENT
     osquery
