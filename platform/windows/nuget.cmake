@@ -14,6 +14,12 @@ install(
 )
 
 install(
+  FILES "${OSQUERY_DATA_PATH}/control/nupkg/extras/VERIFICATION.txt"
+  DESTINATION "."
+  COMPONENT osquery
+)
+
+install(
   FILES "${OSQUERY_DATA_PATH}/control/osquery.png"
   DESTINATION "."
   COMPONENT osquery
