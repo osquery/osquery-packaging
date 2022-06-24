@@ -11,7 +11,7 @@ project("osquery")
 cmake_minimum_required(VERSION 3.17.5)
 
 set(OSQUERY_DATA_PATH "" CACHE PATH "osquery package data")
-set(CPACK_PACKAGE_VERSION "" CACHE PATH "osquery package version")
+set(CPACK_PACKAGE_VERSION "" CACHE STRING "osquery package version")
 
 if(OSQUERY_DATA_PATH STREQUAL "")
   message(FATAL_ERROR "Missing data folder")
