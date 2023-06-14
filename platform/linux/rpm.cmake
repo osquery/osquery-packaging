@@ -32,7 +32,7 @@ list(APPEND CPACK_RPM_EXCLUDE_FROM_AUTO_FILELIST_ADDITION
 
 install(
   FILES "${OSQUERY_DATA_PATH}/control/rpm/etc/init.d/osqueryd"
-  DESTINATION "/etc/init.d"
+  DESTINATION "/etc/rc.d/init.d"
   COMPONENT osquery
 
   PERMISSIONS
