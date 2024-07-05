@@ -7,7 +7,7 @@
 # SPDX-License-Identifier: (Apache-2.0 OR GPL-2.0-only)
 #
 
-project("osquery")
+project("osquery" NONE)
 cmake_minimum_required(VERSION 3.17.5)
 
 set(OSQUERY_DATA_PATH "" CACHE PATH "osquery package data")
