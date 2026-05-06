@@ -22,17 +22,22 @@ if(DEFINED OSQUERY_SOURCE_DIRECTORY_LIST)
   set(CPACK_RPM_DEBUGINFO_FILE_NAME "RPM-DEFAULT")
 endif()
 
+list(APPEND CPACK_RPM_USER_FILELIST
+  "%ghost /etc/init.d/osqueryd"
+)
+
 list(APPEND CPACK_RPM_EXCLUDE_FROM_AUTO_FILELIST_ADDITION
   /etc/sysconfig
   /var
   /var/log
   /usr/lib/systemd
   /usr/lib/systemd/system
+  /etc/init.d
 )
 
 install(
   FILES "${OSQUERY_DATA_PATH}/control/rpm/etc/init.d/osqueryd"
-  DESTINATION "/etc/init.d"
+  DESTINATION "share/osquery/initd"
   COMPONENT osquery
 
   PERMISSIONS
