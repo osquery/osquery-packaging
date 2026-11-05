@@ -15,7 +15,7 @@ set(CPACK_DEBIAN_PACKAGE_PRIORITY "extra")
 set(CPACK_DEBIAN_PACKAGE_SECTION "default")
 set(CPACK_DEBIAN_PACKAGE_DEPENDS "libc6 (>=2.12), zlib1g")
 set(CPACK_DEBIAN_PACKAGE_HOMEPAGE "${CPACK_PACKAGE_HOMEPAGE_URL}")
-set(CPACK_DEBIAN_PACKAGE_CONTROL_EXTRA "${OSQUERY_DATA_PATH}/control/deb/conffiles;${OSQUERY_DATA_PATH}/control/postinst;${OSQUERY_DATA_PATH}/control/deb/postrm")
+set(CPACK_DEBIAN_PACKAGE_CONTROL_EXTRA "${OSQUERY_DATA_PATH}/control/deb/conffiles;${OSQUERY_DATA_PATH}/control/postinst")
 
 if(DEFINED OSQUERY_SOURCE_DIRECTORY_LIST)
   set(CPACK_DEB_COMPONENT_INSTALL ON)
@@ -26,17 +26,6 @@ install(
   FILES "${OSQUERY_DATA_PATH}/control/deb/lib/systemd/system/osqueryd.service"
   DESTINATION "/usr/lib/systemd/system"
   COMPONENT osquery
-)
-
-install(
-  FILES "${OSQUERY_DATA_PATH}/control/deb/etc/init.d/osqueryd"
-  DESTINATION "share/osquery/initd"
-  COMPONENT osquery
-
-  PERMISSIONS
-    OWNER_READ OWNER_WRITE OWNER_EXECUTE
-    GROUP_READ             GROUP_EXECUTE
-    WORLD_READ             WORLD_EXECUTE
 )
 
 install(
